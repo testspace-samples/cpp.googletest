@@ -1,0 +1,19 @@
+language: none
+ 
+ env:
+   global:
+     - secure: M92wFfmey4JQV02Um8AjZ3xc7zAJJdDKbJxuNA6WP+wU4n58cF/UsLMl3hWWOtjqVqb+5N9OTFONJoHV1s6iJstsMHebBSBhZg1CykocysUdDlOj0sEE25BNRV078AgOAC8UXi4+5qG86Py9GldTUe0+NJH/GRlKCCy/jXUdm68oMSFjWnDSeLUAz52OBLehkNP3IrhcVNFJ4s1dBgujxYUeIg0XNksypnV29lK081hAN4jGWl2/eb6JRmq6i5BaHtNHPqC1YNrtKf432acPIqPEUf8Ni4w8xb4SqZ3vI5TuW20ZRIcZpNPFqpIddtBOmKrdUgDcxzfH6DPvvvJC8Q==
+     
+ before_script:
+   - ./testspace_install.sh
+   - mkdir -p shippable/codecoverage
+   - mkdir -p shippable/testresults
+    
+ script: 
+   - export PATH="${HOME}/testspace:${PATH}"
+   - testspace config url $TESTSPACE_TOKEN
+   - testspace import .testspace.xml
+   - testspace run
+ 
+   - cp gtest/build/samples*.xml shippable/testresults
+   - cp gtest/build/coverage.xml shippable/codecoverage

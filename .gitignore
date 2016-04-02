@@ -1,0 +1,11 @@
+# Ignore everything
+*
+
+# But not these files
+!.gitignore
+!.travis.yml
+!LICENSE
+!README.md
+!testspace_install.sh
+!.testspace.xml
+!shippable.yml
