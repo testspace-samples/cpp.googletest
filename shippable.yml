@@ -1,9 +1,9 @@
-  language: none
+ language: none
  
  env:
    global:
-     - secure: M92wFfmey4JQV02Um8AjZ3xc7zAJJdDKbJxuNA6WP+wU4n58cF/UsLMl3hWWOtjqVqb+5N9OTFONJoHV1s6iJstsMHebBSBhZg1CykocysUdDlOj0sEE25BNRV078AgOAC8UXi4+5qG86Py9GldTUe0+NJH/GRlKCCy/jXUdm68oMSFjWnDSeLUAz52OBLehkNP3IrhcVNFJ4s1dBgujxYUeIg0XNksypnV29lK081hAN4jGWl2/eb6JRmq6i5BaHtNHPqC1YNrtKf432acPIqPEUf8Ni4w8xb4SqZ3vI5TuW20ZRIcZpNPFqpIddtBOmKrdUgDcxzfH6DPvvvJC8Q==
-     
+     - secure: L2a7ynL7Wm38N0fA2pCOwulTkvZthZyTCZrqUgbkAqvn4NnWpNTc5UFq+TPVuDDi5IzFpijhDvG9a11MH9pdr+jzXj98aD3cQWSnIGMr6q8XGbWMX/DlyOIXFyGlcBEpX3A9zjC1Q/FdEfZ3T3PcwGjg96TCW+9tZUTNRzPub26QFkJUB2QRvdP7IqQnAVpBmEsA2/Hbll3AT5cP4oQMEe8R4ARqcWFjfNmU1WNnm1RAD2ikDnQC7VQZv3AUCiAdxCeyAKGsJnMataxp5ah62Ct4fzIcM8SzBbRxps/SOkhyX7gV7h9bFl0MryZ6jqR3c4D5RqtgZs1FGqNk/T5qPQ==
+
  before_script:
    - ./testspace_install.sh
    - mkdir -p shippable/codecoverage
@@ -14,6 +14,6 @@
    - testspace config url $TESTSPACE_TOKEN
    - testspace import .testspace.xml
    - testspace run
- 
+   
    - cp gtest/build/samples*.xml shippable/testresults
    - cp gtest/build/coverage.xml shippable/codecoverage
