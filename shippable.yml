@@ -15,5 +15,5 @@
    - testspace import .testspace.xml
    - testspace run
    
-   - cp gtest/build/samples*.xml shippable/testresults
+   - cp gtest/build/sample*.xml shippable/testresults
    - cp gtest/build/coverage.xml shippable/codecoverage
