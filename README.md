@@ -8,8 +8,8 @@ Sample demonstrates techniques for using Testspace with C++ code and the [Google
 ***
 
 [![Build Status](https://travis-ci.org/testspace-samples/cpp.googletest.svg?branch=master)](https://travis-ci.org/testspace-samples/cpp.googletest)
-[![Space Health](https://samples.testspace.com/projects/84/spaces/283/badge)](https://samples.testspace.com/projects/84/spaces/283 "Test Cases")
-[![Space Metric](https://samples.testspace.com/projects/84/spaces/283/metrics/178/badge)](https://samples.testspace.com/projects/84/spaces/283/metrics#metric-178 "Line/Statement Coverage")
+[![Space Health](https://samples.testspace.com/projects/84/spaces/285/badge)](https://samples.testspace.com/projects/84/spaces/285 "Test Cases")
+[![Space Metric](https://samples.testspace.com/projects/84/spaces/285/metrics/179/badge)](https://samples.testspace.com/projects/84/spaces/285/metrics#metric-179 "Line/Statement Coverage")
 
 ***
 
