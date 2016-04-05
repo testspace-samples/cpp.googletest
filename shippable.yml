@@ -2,7 +2,7 @@
  
  env:
    global:
-     - secure: CbkPzEMiNbBOANWFhrFEMbjArE3PaEj67sqLXKine8BeHxnk91a6PyxKR8cgwycV8eHNENs6vKuSumhfMVY3vGTNpaKm8p3RUUXr2P0uFBurBLGPJ8v0tHpn+PmXigK7I3/J0FcUCzIvlnhvGlsEzNYlUYQL7XXQD/SHJRmQzW5cl8WIWfSFzIHKCCitsOBJCmBt9CCFsF2w5g7ULDdnXP6ttf38clMg2hDVzeus+s5aFifgtzcolcsIB6PRKl934Ta5iLHmdInTMe1PyBMMK8j2gLJEMnPRN5BM7cU/B+88SZj0hdxQaZGKMLQWfbmtXZFmJjzF79ByKNb7/LlB8Q==
+     - secure: Oo3U4EL5E+Hf3WUugaBW5Le2XZXayKyE9reJAh69A0xrHS+Rpje0kpNHV7r1drzRRkQxGmS2CzL9K0P+VPiqkIEFzHmyhWgUga1AVNsuJE6C0cis0S3qA/g81FMBjuQf8EdkDWgXKQRipKPzYIItaxpQs/8JLerizAN6c0W8+2qCeUfqeVzR0xuIOXr9WL7jmAbggQgzF/QH5UiqLAey/szxxxKr5jmlb+kazyb9g7iTCe7NbEkdu9fcWX1e92quinmkrhM4IFkippaz44GXCebGmiQL8XoS9GAFvow5bqW/c8tQFCeYklAZxqhIIqrbvai/Cxwk0UhPzzoPvhCniw==
 
  before_script:
    - ./testspace_install.sh
