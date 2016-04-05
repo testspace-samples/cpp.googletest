@@ -8,9 +8,8 @@ Sample demonstrates techniques for using Testspace with C++ code and the [Google
 ***
 
 [![Build Status](https://travis-ci.org/testspace-samples/cpp.googletest.svg?branch=master)](https://travis-ci.org/testspace-samples/cpp.googletest)
-[![Space Health](http://munderseth.stridespace.com/projects/262/spaces/806/badge)](http://munderseth.stridespace.com/projects/262/spaces/806 "Test Cases")
-[![Space Metric](http://munderseth.stridespace.com/projects/262/spaces/806/metrics/161/badge)](http://munderseth.stridespace.com/projects/262/spaces/806/metrics#metric-161 "Line/Statement Coverage")
-
+[![Space Health](https://samples.testspace.com/projects/84/spaces/283/badge)](https://samples.testspace.com/projects/84/spaces/283 "Test Cases")
+[![Space Metric](https://samples.testspace.com/projects/84/spaces/283/metrics/178/badge)](https://samples.testspace.com/projects/84/spaces/283/metrics#metric-178 "Line/Statement Coverage")
 
 ***
 
@@ -38,13 +37,12 @@ Publish **`test results`** along with **`code coverage`**
 testspace publish [Tests]sample*.xml coverage.xml
 </pre>
 
-Checkout the [sample](http://munderseth.stridespace.com/projects/cpp/spaces/googletest.example). 
+Checkout the [Space](https://samples.testspace.com/projects/cpp/spaces/googletest). 
 
 ***
 
 To fork this example using Travis requires:
-  - Account at www.testspace.com (use `Open`)
+  - Create an account at www.testspace.com
   - Travis Environment Variables:
-    - The `TESTSPACE_USER_TOKEN` *Name* is set to the *Value* defined as your [Access token](http://help.testspace.com/using-your-organization:user-settings).
-    - The `TESTSPACE_URL` *Name* is set to `my-org-name.testspace.com/my-project/my-space`. Refer [here](http://help.testspace.com/reference:runner-reference#config) for more details. This example uses `samples.testspace.com/cpp/googletest.example`.
-  
+    - `TESTSPACE_USER_TOKEN` set to the `value` defined as your [Access token](http://help.testspace.com/using-your-organization:user-settings).
+    - `TESTSPACE_URL` set to `my-org-name.testspace.com/my-project/my-space`. Refer [here](http://help.testspace.com/reference:runner-reference#config) for more details. This example uses `samples.testspace.com/cpp/googletest`.
