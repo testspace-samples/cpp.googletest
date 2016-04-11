@@ -59,11 +59,10 @@ echo "$PWD/sample*.xml" > ${self.result}
     </suite>
     <suite name="Generate.coverage" state="1" id=".sh" description="Code coverage based on latest run. Review the **Reports** tab for historical tracking">
       <attributes>
-        <![CDATA[cd gtest/samples
-gcovr --root .. --filter ".*samples.*" --exclude ".*_unittest.*" -x -o ../build/coverage.xml
+        <![CDATA[cd gtest
+gcovr --root .. --filter ".*samples.*" --exclude ".*_unittest.*" -x -o build/coverage.xml
 
-cd ../build
-echo $PWD/coverage.xml > ${self.result}]]>
+echo $PWD/build/coverage.xml > ${self.result}]]>
       </attributes>
     </suite>
   </root>

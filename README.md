@@ -27,13 +27,15 @@ make
 ./sample7_unittest --gtest_output=xml:sample7.xml
 ./sample8_unittest --gtest_output=xml:sample8.xml
 ./sample9_unittest --gtest_output=xml:sample9.xml
-./sample19_unittest --gtest_output=xml:sample10.xml
-gcovr --root gtest --filter ".*samples.*" --exclude ".*_unittest.*" -x -o ../build/coverage.xml
+./sample10_unittest --gtest_output=xml:sample10.xml
+cd ..
+gcovr --root gtest --filter ".*samples.*" --exclude ".*_unittest.*" -x -o build/coverage.xml
 </pre>
 
 Publish **`test results`** along with **`code coverage`**
 
 <pre>
+cd gtest/build
 testspace publish [Tests]sample*.xml coverage.xml
 </pre>
 
