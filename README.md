@@ -29,14 +29,14 @@ make
 ./sample9_unittest --gtest_output=xml:sample9.xml
 ./sample10_unittest --gtest_output=xml:sample10.xml
 cd ..
-gcovr --root gtest --filter ".*samples.*" --exclude ".*_unittest.*" -x -o build/coverage.xml
+gcovr --root gtest --filter ".*/samples/.*" --exclude ".*_unittest.*" -x -o build/coverage.xml
 </pre>
 
 Publish **`test results`** along with **`code coverage`**
 
 <pre>
-cd gtest/build
-testspace publish [Tests]sample*.xml coverage.xml
+cd gtest
+testspace publish [Tests]build/sample*.xml build/coverage.xml
 </pre>
 
 Checkout the [Space](https://samples.testspace.com/projects/cpp/spaces/googletest). 
