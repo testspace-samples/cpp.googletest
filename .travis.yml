@@ -5,6 +5,7 @@ before_install:
 # Install system prerequisites
  - sudo pip install gcovr
  - ./testspace_install.sh
+ - export PATH="${HOME}/testspace:${PATH}"
 
 # Install Google Test framework  
  - wget https://googletest.googlecode.com/files/gtest-1.7.0.zip
@@ -35,10 +36,5 @@ script:
  - gcovr --root $PWD --filter ".*/samples.*" --exclude ".*_unittest.*" -x -o build/coverage.xml
 
 # Publish Test Results along with Coverage
- - export PATH="${HOME}/testspace:${PATH}"
-# Testspace credentials: "credentials@myorg.testspace.com/myproject/myspace
- - testspace config url ${TESTSPACE_USER_TOKEN}:@${TESTSPACE_URL}
  - cd $TRAVIS_BUILD_DIR/gtest/build
- - testspace publish [Tests]sample*.xml coverage.xml
-  
-  
+ - testspace publish [Tests]sample*.xml coverage.xml ${TESTSPACE_URL}
