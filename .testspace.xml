@@ -6,7 +6,8 @@
     </attributes>
     <suite name="Install.prerequisites" state="1" id=".sh" description="**Install** system prerequisites ">
       <attributes>
-        <![CDATA[# install standard system and development tools
+        <![CDATA[sudo apt-get update
+# install standard system and development tools
 sudo apt-get install wget unzip python make g++
 # install GNU autotools 
 sudo apt-get install cmake
