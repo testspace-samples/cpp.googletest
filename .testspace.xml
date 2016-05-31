@@ -66,7 +66,7 @@ echo "$PWD/sample*.xml" > ${self.result}
         <![CDATA[cd gtest
 gcovr --root $PWD --filter ".*/samples.*" --exclude ".*_unittest.*" -x -o build/coverage.xml
 
-cp build/coverage.xml ${self.result}]]>
+echo $PWD/build/coverage.xml > ${self.result}]]>
       </attributes>
     </suite>
   </root>
