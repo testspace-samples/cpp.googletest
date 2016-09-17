@@ -5,6 +5,7 @@
     - secure: Guv8JrTD70i5/YZQJxIJH/lcSsezkbwiEy/ePcMm2grd3I08XlGMXRCod+IjMHqVe3Tv8X4CPOgebCcluCjmHjV2110JfohGLNgZK99VTxDqYrfCJNtXxwwr8iQmliqPCCl+EDlzZ7Mx0Tqr8uBAWOkHTXYwRqUdElUY4WHjj8WDYIYaG/Nc8u4Ev7r4byydSfIBYOeu5bmxuXPDECgtv3Bv6iiRaPT9WfQ6xpgr5JiHzlrBOtMQul5CbduLxwz2J6heeIHpepvBvbLnwXfYlyjMVlLUTTsf+JoBtil8c8mO7tOeR1QqpM6HWYNdxMlornhFTC+IDltY3Iuf6SgSAg==
    
  before_script:
+  - sudo apt-get update
   - sudo apt-get install cmake
   - sudo pip install gcovr
   - wget https://github.com/google/googletest/archive/release-1.7.0.zip
