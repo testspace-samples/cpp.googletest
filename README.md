@@ -7,6 +7,7 @@ Sample demonstrates techniques for using Testspace with C++ code and the [Google
 
 ***
 Using Multiple Online CI Services:
+
 [![Build Status](https://travis-ci.org/testspace-samples/cpp.googletest.svg?branch=master)](https://travis-ci.org/testspace-samples/cpp.googletest)
 [![Run Status](https://api.shippable.com/projects/570008739d043da07b099664/badge?branch=master)](https://app.shippable.com/projects/570008739d043da07b099664)
 
