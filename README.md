@@ -6,10 +6,18 @@
 Sample demonstrates techniques for using Testspace with C++ code and the [Google Test framework](https://code.google.com/p/googletest).
 
 ***
-
+Using Multiple Online CI Services:
 [![Build Status](https://travis-ci.org/testspace-samples/cpp.googletest.svg?branch=master)](https://travis-ci.org/testspace-samples/cpp.googletest)
-[![Space Health](https://samples.testspace.com/projects/84/spaces/285/badge)](https://samples.testspace.com/projects/84/spaces/285 "Test Cases")
-[![Space Metric](https://samples.testspace.com/projects/84/spaces/285/metrics/179/badge)](https://samples.testspace.com/projects/84/spaces/285/metrics#metric-179 "Line/Statement Coverage")
+[![Run Status](https://api.shippable.com/projects/570008739d043da07b099664/badge?branch=master)](https://app.shippable.com/projects/570008739d043da07b099664)
+
+
+***
+Publishing **Test Content** using www.testspace.com.
+
+[![Space Health](https://samples.testspace.com/projects/123/spaces/452/badge)](https://samples.testspace.com/projects/123/spaces/452 "Test Cases")
+[![Space Metric](https://samples.testspace.com/projects/123/spaces/452/metrics/289/badge)](https://samples.testspace.com/spaces/452/schema/Code%20Coverage "Code Coverage (lines)")
+[![Space Metric](https://samples.testspace.com/projects/123/spaces/452/metrics/288/badge)](https://samples.testspace.com/spaces/452/schema/Code%20Coverage "Code Coverage (branches)")
+
 
 ***
 
@@ -35,18 +43,19 @@ gcovr --root gtest --filter ".*/samples/.*" --exclude ".*_unittest.*" -x -o buil
 Publish **`test results`** along with **`code coverage`**
 
 <pre>
-cd gtest
-testspace publish [Tests]build/sample*.xml build/coverage.xml
+curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
+cd gtest/build
+testspace [Tests]sample*.xml build/coverage.xml $TESTSPACE_TOKEN/$BRANCH_NAME
 </pre>
 
-Checkout the [Space](https://samples.testspace.com/projects/cpp/spaces/googletest). 
+Checkout the [Space](https://samples.testspace.com/projects/cpp.googletest). 
 
 ***
 
-To fork this example using Travis requires:
+To replicate this sample: 
   - Account at www.testspace.com.
-  - Travis Environment Variable: 
-    - `TESTSPACE_URL` = `credentials:@my-org-name.testspace.com/my-project/my-space`
+  - CI Environment Variable called **TESTSPACE_TOKEN** required:
+    -  `TESTSPACE_TOKEN` = `credentials@my-org-name.testspace.com/my-project`
     - `credentials` set to `username:password` or your [access token](http://help.testspace.com/using-your-organization:user-settings).
-    - `my-org-name.testspace.com/my-project/my-space` based on your subdomain, project, and space names. Refer [here](http://help.testspace.com/reference:runner-reference#login-credentials) for more details. 
-    
+    - `my-org-name.testspace.com/my-project` based on your *subdomain* and *project* names. Refer [here](http://help.testspace.com/reference:runner-reference#login-credentials) for more details. 
+  
