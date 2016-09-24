@@ -12,6 +12,7 @@ dependencies:
 test:
   override:
    - cd gtest/build; make; 
+   - cd gtest/build; ./sample1_unittest --gtest_output=xml:sample1.xml
    - cd gtest/build; ./sample2_unittest --gtest_output=xml:sample2.xml
    - cd gtest/build; ./sample3_unittest --gtest_output=xml:sample3.xml
    - cd gtest/build; ./sample4_unittest --gtest_output=xml:sample4.xml
