@@ -3,11 +3,11 @@
 
 # But not these files
 !.gitignore
-!.travis.yml
+
 !LICENSE
 !README.md
-!testspace_install.sh
-!.testspace.xml
-!shippable.yml
 
+!.travis.yml
+!shippable.yml
+!circle.yml
 !.c9build.sh
