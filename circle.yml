@@ -7,10 +7,7 @@ dependencies:
    - unzip release-1.7.0.zip 
    - mv googletest-release-1.7.0 gtest
   override:
-   - cd gtest
-   - mkdir build
-   - cd build
-   - cmake -Dgtest_build_samples=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS_DEBUG='-g -fprofile-arcs -ftest-coverage' ../
+   - cd gtest; mkdir build; cd build; cmake -Dgtest_build_samples=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS_DEBUG='-g -fprofile-arcs -ftest-coverage' ../
 
 test:
   override:
@@ -25,9 +22,7 @@ test:
    - ./sample8_unittest --gtest_output=xml:sample8.xml
    - ./sample9_unittest --gtest_output=xml:sample9.xml
    - ./sample10_unittest --gtest_output=xml:sample10.xml
-   - cd ..
-   - gcovr --root $PWD --filter ".*/samples.*" --exclude ".*_unittest.*" -x -o build/coverage.xml
+   - cd ..; gcovr --root $PWD --filter ".*/samples.*" --exclude ".*_unittest.*" -x -o build/coverage.xml
   post:  
    - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
-   - cd build
-   - testspace [Tests]sample*.xml coverage.xml $TESTSPACE_TOKEN/${CIRCLE_BRANCH}#circle.Build.${CIRCLE_BUILD_NUM}
+   - testspace [Tests]build/sample*.xml build/coverage.xml $TESTSPACE_TOKEN/${CIRCLE_BRANCH}#circle.Build.${CIRCLE_BUILD_NUM}
