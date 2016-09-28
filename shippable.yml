@@ -13,7 +13,7 @@ build:
   - wget https://github.com/google/googletest/archive/release-1.8.0.zip
   - unzip release-1.8.0.zip
 
-  - mkdir $GTEST_ROOT/build
+  - mkdir -p $GTEST_ROOT/build
   - pushd $GTEST_ROOT/build
   - cmake -Dgtest_build_samples=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS_DEBUG='-g -fprofile-arcs -ftest-coverage' ../
   - make clean gtest

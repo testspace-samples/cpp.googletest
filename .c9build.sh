@@ -14,7 +14,7 @@ unzip release-1.8.0.zip
 rm release-1.8.0.zip
 
 # Build library
-mkdir $GTEST_ROOT/build
+mkdir -p $GTEST_ROOT/build
 pushd $GTEST_ROOT/build
 cmake -Dgtest_build_samples=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS_DEBUG='-g -fprofile-arcs -ftest-coverage' ../
 make clean gtest
