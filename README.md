@@ -26,28 +26,25 @@ Publishing **Test Content** using www.testspace.com.
 Build Examples provided by the Google Test framework:
 
 <pre>
-cd gtest/build
-make
-./sample1_unittest --gtest_output=xml:sample1.xml
-./sample2_unittest --gtest_output=xml:sample2.xml
-./sample3_unittest --gtest_output=xml:sample3.xml
-./sample4_unittest --gtest_output=xml:sample4.xml
-./sample5_unittest --gtest_output=xml:sample5.xml
-./sample6_unittest --gtest_output=xml:sample6.xml
-./sample7_unittest --gtest_output=xml:sample7.xml
-./sample8_unittest --gtest_output=xml:sample8.xml
-./sample9_unittest --gtest_output=xml:sample9.xml
-./sample10_unittest --gtest_output=xml:sample10.xml
-cd ..
-gcovr --root gtest --filter ".*/samples/.*" --exclude ".*_unittest.*" -x -o build/coverage.xml
+make -C $GTEST_ROOT/build |& tee build.log ; test ${PIPESTATUS[0]} -eq 0
+$GTEST_ROOT/build/sample1_unittest --gtest_output=xml:sample1.xml
+$GTEST_ROOT/build/sample2_unittest --gtest_output=xml:sample2.xml
+$GTEST_ROOT/build/sample3_unittest --gtest_output=xml:sample3.xml
+$GTEST_ROOT/build/sample4_unittest --gtest_output=xml:sample4.xml
+$GTEST_ROOT/build/sample5_unittest --gtest_output=xml:sample5.xml
+$GTEST_ROOT/build/sample6_unittest --gtest_output=xml:sample6.xml
+$GTEST_ROOT/build/sample7_unittest --gtest_output=xml:sample7.xml
+$GTEST_ROOT/build/sample8_unittest --gtest_output=xml:sample8.xml
+$GTEST_ROOT/build/sample9_unittest --gtest_output=xml:sample9.xml
+$GTEST_ROOT/build/sample10_unittest --gtest_output=xml:sample10.xml
+gcovr --root ../ --filter ".*/samples/.*" --exclude ".*_unittest.*" -x -o coverage.xml
 </pre>
 
-Publish **`test results`** along with **`code coverage`**
+Publish **`test results`** along with **`static analysis`** and **`code coverage`**
 
 <pre>
 curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
-cd gtest/build
-testspace [Tests]sample*.xml build/coverage.xml $TESTSPACE_TOKEN/$BRANCH_NAME
+testspace build.log{issues} [Tests]sample*.xml build/coverage.xml $TESTSPACE_TOKEN/$BRANCH_NAME
 </pre>
 
 Checkout the [Space](https://samples.testspace.com/projects/cpp.googletest). 
