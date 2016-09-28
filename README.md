@@ -18,8 +18,7 @@ Publishing **Test Content** using www.testspace.com.
 
 [![Space Health](https://samples.testspace.com/projects/123/spaces/452/badge)](https://samples.testspace.com/projects/123/spaces/452 "Test Cases")
 [![Space Metric](https://samples.testspace.com/projects/123/spaces/452/metrics/289/badge)](https://samples.testspace.com/spaces/452/schema/Code%20Coverage "Code Coverage (lines)")
-[![Space Metric](https://samples.testspace.com/projects/123/spaces/452/metrics/288/badge)](https://samples.testspace.com/spaces/452/schema/Code%20Coverage "Code Coverage (branches)")
-
+[![Space Metric](https://samples.testspace.com/projects/123/spaces/452/metrics/358/badge)](https://samples.testspace.com/spaces/452/schema/Static%20Analysis "Static Analysis (issues)")
 
 ***
 
