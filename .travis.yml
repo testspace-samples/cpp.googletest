@@ -31,6 +31,7 @@ script:
  - $GTEST_ROOT/build/sample10_unittest --gtest_output=xml:sample10.xml
  - gcovr --root ./ --filter ".*/samples/.*" --exclude ".*_unittest.*" -x -o coverage.xml
 
-after_script:  
+# Requires TESTSPACE_TOKEN environment variable.   
+after_script:
   - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
-  - testspace build.log{issues} [Tests]sample*.xml coverage.xml $TESTSPACE_TOKEN/${TRAVIS_BRANCH}#travis.Build.${TRAVIS_BUILD_NUMBER}
+  - testspace @.testspace.txt $TESTSPACE_TOKEN/${TRAVIS_REPO_SLUG/\//:}/${TRAVIS_BRANCH}#travis.Build.${TRAVIS_BUILD_NUMBER}

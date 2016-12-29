@@ -1,0 +1,3 @@
+build.log{issues}
+[Tests]sample*.xml
+coverage.xml
