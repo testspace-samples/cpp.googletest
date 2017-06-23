@@ -10,8 +10,8 @@ build:
   - curl -fsSL https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | tar -zxvf- -C $HOME/bin
   - testspace config url samples.testspace.com
   - testspace -v
-  - sudo apt-get update
-  - sudo apt-get install cmake
+  - apt-get update
+  - apt-get install cmake
   - pip install gcovr
   - wget https://github.com/google/googletest/archive/release-1.8.0.zip
   - unzip release-1.8.0.zip
