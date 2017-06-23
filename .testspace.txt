@@ -1,3 +1,0 @@
-build.log{lint}
-[Tests]sample*.xml
-coverage.xml

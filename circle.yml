@@ -1,10 +1,15 @@
 machine:
+  services:
+    docker
   environment:
    GTEST_ROOT: $HOME/$CIRCLE_PROJECT_REPONAME/googletest-release-1.8.0/googletest
 
 dependencies:
   pre:
-   - sudo pip install gcovr
+   - curl -fsSL https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | tar -zxvf- -C $HOME/bin
+   - testspace config url samples.testspace.com
+   - testspace -v
+   - pip install gcovr
    - wget https://github.com/google/googletest/archive/release-1.8.0.zip
    - unzip release-1.8.0.zip
   override:
@@ -25,8 +30,5 @@ test:
    - $GTEST_ROOT/build/sample10_unittest --gtest_output=xml:sample10.xml
    - gcovr --root ./ --filter ".*/samples/.*" --exclude ".*_unittest.*" -x -o coverage.xml
 
- # Requires TESTSPACE_TOKEN environment variable.      
   post:
-    - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin
-    - testspace @.testspace.txt $TESTSPACE_TOKEN/${CIRCLE_PROJECT_USERNAME}:${CIRCLE_PROJECT_REPONAME}/${CIRCLE_BRANCH}#circle.Build.${CIRCLE_BUILD_NUM}
- 
+   - testspace build.log{lint} [Tests]sample*.xml coverage.xml 
