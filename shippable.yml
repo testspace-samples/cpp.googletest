@@ -35,9 +35,5 @@ build:
   - $GTEST_ROOT/build/sample10_unittest --gtest_output=xml:sample10.xml
   - gcovr --root ./ --filter ".*/samples/.*" --exclude ".*_unittest.*" -x -o coverage.xml
  
- on_success:
-   - testspace build.log{lint} [Tests]sample*.xml coverage.xml
-
- on_failure:
-   - testspace build.log{lint} [Tests]sample*.xml coverage.xml
- 
+ always:
+  - testspace build.log{lint} [Tests]sample*.xml coverage.xml
