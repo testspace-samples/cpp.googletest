@@ -4,18 +4,18 @@
 
 ## C++/Google Test sample for demonstrating Testspace
 
-Sample demonstrates techniques for using Testspace with C++ code and the [Google Test framework](https://code.google.com/p/googletest).
+Sample demonstrates techniques for using Testspace with C++ code and the [Google Test framework](https://github.com/google/googletest).
   * Using a Testspace Project that is `connected` with this GitHub Repo
   * Using 3 Online CI services for demonstration purposes only
   * Can review the Results at [testspace-samples:cpp.cpputest](https://samples.testspace.com/projects/testspace-samples:cpp.googletest)  
-  * Refer to our [Getting Started](https://help.testspace.com/getting-started) help articles for more information
+  * Refer to our [Help](https://help.testspace.com/) for more information
 
 ***
 Using Multiple Online CI Services:
 
+![Build](https://github.com/testspace-samples/cpp.googletest/workflows/Build/badge.svg)
 [![Build Status](https://travis-ci.org/testspace-samples/cpp.googletest.svg?branch=master)](https://travis-ci.org/testspace-samples/cpp.googletest)
 [![CircleCI](https://circleci.com/gh/testspace-samples/cpp.googletest.svg?style=svg)](https://circleci.com/gh/testspace-samples/cpp.googletest)
-[![Run Status](https://api.shippable.com/projects/570008739d043da07b099664/badge?branch=master)](https://app.shippable.com/projects/570008739d043da07b099664)
 
 
 ***

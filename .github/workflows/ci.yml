@@ -1,0 +1,54 @@
+name: Build
+on:
+  push:
+  schedule:
+    - cron:  '0 1 * * 0'
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    env:
+      GTEST_ROOT: googletest-release-1.8.1/googletest
+    steps:
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 2.7
+      - name: Setup build tools
+        run: |
+          sudo apt-get install cmake
+          sudo pip install gcovr
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 50
+      - uses: testspace-com/setup-testspace@v1
+        with:
+          domain: samples
+      - name: Install GTest
+        run: |
+          wget https://github.com/google/googletest/archive/release-1.8.1.zip
+          unzip release-1.8.1.zip
+          mkdir -p $GTEST_ROOT/build
+          pushd $GTEST_ROOT/build
+          cmake -Dgtest_build_samples=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS_DEBUG='-g -fprofile-arcs -ftest-coverage' ../
+          make clean gtest
+          popd
+      - name: Build
+        run: |
+          make -C $GTEST_ROOT/build |& tee build.log ; test ${PIPESTATUS[0]} -eq 0
+      - name: Test
+        run: |
+          $GTEST_ROOT/build/sample1_unittest --gtest_output=xml:sample1.xml
+          $GTEST_ROOT/build/sample2_unittest --gtest_output=xml:sample2.xml
+          $GTEST_ROOT/build/sample3_unittest --gtest_output=xml:sample3.xml
+          $GTEST_ROOT/build/sample4_unittest --gtest_output=xml:sample4.xml
+          $GTEST_ROOT/build/sample5_unittest --gtest_output=xml:sample5.xml
+          $GTEST_ROOT/build/sample6_unittest --gtest_output=xml:sample6.xml
+          $GTEST_ROOT/build/sample7_unittest --gtest_output=xml:sample7.xml
+          $GTEST_ROOT/build/sample8_unittest --gtest_output=xml:sample8.xml
+          $GTEST_ROOT/build/sample9_unittest --gtest_output=xml:sample9.xml
+          $GTEST_ROOT/build/sample10_unittest --gtest_output=xml:sample10.xml
+          gcovr --root ./ --filter ".*/samples/.*" --exclude ".*_unittest.*" -x -o coverage.xml
+      - name: Push
+        run: |
+          testspace build.log{lint} [Tests]sample*.xml coverage.xml
+        if: always()
