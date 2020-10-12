@@ -1,15 +1,6 @@
-# Ignore everything
-*
+googletest*
 
-# But not these files
-!.gitignore
-
-!LICENSE
-!README.md
-
-!.travis.yml
-!shippable.yml
-!.circleci/
-!.circleci/config.yml
-!.c9build.sh
-!.testspace.txt
+build.log
+.sample*.links/
+sample*.xml
+coverage.xml
