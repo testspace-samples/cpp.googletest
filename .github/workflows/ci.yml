@@ -8,25 +8,22 @@ jobs:
   build:
     runs-on: ubuntu-18.04
     env:
-      GTEST_ROOT: googletest-release-1.8.1/googletest
+      GTEST_ROOT: googletest-release-1.10.0/googletest
     steps:
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v3
         with:
-          python-version: 2.7
+          python-version: 3.x
       - name: Setup build tools
         run: |
           sudo apt-get install cmake
           sudo pip install gcovr
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 50
+      - uses: actions/checkout@v3
       - uses: testspace-com/setup-testspace@v1
         with:
           domain: samples
       - name: Install GTest
         run: |
-          wget https://github.com/google/googletest/archive/release-1.8.1.zip
-          unzip release-1.8.1.zip
+          curl -fsSL https://github.com/google/googletest/archive/refs/tags/release-1.10.0.tar.gz | tar -zxvf-
           mkdir -p $GTEST_ROOT/build
           pushd $GTEST_ROOT/build
           cmake -Dgtest_build_samples=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS_DEBUG='-g -fprofile-arcs -ftest-coverage' ../
