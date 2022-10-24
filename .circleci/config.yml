@@ -5,20 +5,20 @@ jobs:
     docker:
       - image: cimg/python:3.10
         environment:
-          GTEST_ROOT: googletest-release-1.11.0/googletest
+          GTEST_ROOT: googletest-release-1.12.1/googletest
     steps:
       - checkout
       - run: sudo apt-get install cmake
       - run: "curl -fsSL https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | sudo tar -zxvf- -C /usr/local/bin"
       - run: "testspace config url samples.testspace.com"
-      - run: "sudo pip install gcovr"
-      - run: "curl -fsSL https://github.com/google/googletest/archive/refs/tags/release-1.11.0.tar.gz | tar -zxvf-"
+      - run: "pip install gcovr"
+      - run: "curl -fsSL https://github.com/google/googletest/archive/refs/tags/release-1.12.1.tar.gz | tar -zxvf-"
       - run: |
-        mkdir -p $GTEST_ROOT/build
-        pushd $GTEST_ROOT/build
-        cmake -DGOOGLETEST_VERSION=1.11.0 -Dgtest_build_samples=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS_DEBUG='-g -fprofile-arcs -ftest-coverage' ../
-        make clean gtest
-        popd
+          mkdir -p $GTEST_ROOT/build
+          pushd $GTEST_ROOT/build
+          cmake -DGOOGLETEST_VERSION=1.12.1 -Dgtest_build_samples=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS_DEBUG='-g -fprofile-arcs -ftest-coverage' ../
+          make clean gtest
+          popd
       - run: make -C $GTEST_ROOT/build |& tee build.log ; test ${PIPESTATUS[0]} -eq 0
       - run: $GTEST_ROOT/build/sample1_unittest --gtest_output=xml:sample1.xml
       - run: $GTEST_ROOT/build/sample2_unittest --gtest_output=xml:sample2.xml
