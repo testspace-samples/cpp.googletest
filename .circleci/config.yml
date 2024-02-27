@@ -3,7 +3,7 @@ version: 2.0
 jobs:
   build:
     docker:
-      - image: cimg/python:3.10
+      - image: cimg/python:3.12
         environment:
           GTEST_ROOT: googletest-1.14.0/googletest
     steps:

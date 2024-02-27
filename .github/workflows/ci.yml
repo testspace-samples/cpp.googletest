@@ -10,14 +10,14 @@ jobs:
     env:
       GTEST_ROOT: googletest-1.14.0/googletest
     steps:
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: 3.x
       - name: Setup build tools
         run: |
           sudo apt-get install cmake
           sudo pip install gcovr
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: testspace-com/setup-testspace@v1
         with:
           domain: samples
